@@ -1,0 +1,89 @@
+## Audit Questions to Test
+
+Has the requirement for the allowed packages been respected?
+
+Can you confirm that the ```os/exec``` package was **NOT** used in this project?
+
+1. Run both ```my-ls``` and the system command ```ls``` with no arguments.
+-   Does it display the same files and/or folders in the same order?
+
+2. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```<file name>```
+-   Does it display the same file?
+
+3. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```<directory name>```
+-   Does it display the same files and/or folders in the same order?
+
+4. Run both ```my-ls``` and the system command ```ls``` with the flag: **"-l"**
+-   Does it display the same files and/or folders with the same display?
+
+5. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-l <file name>```
+-   Does it display the same file with the same display?
+
+6. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-l <directory name>```
+-   Does it display the same files and/or folders with the same display?
+
+7. Run both ```my-ls``` and the system command ```ls``` with the flag: ```-l /usr/bin```
+-   Does it display the same files and/or folders with the same display? Be aware of symbolic links.
+
+8. Run both ```my-ls``` and the system command ```ls``` with the flag: **"-R"** in a directory with folders in it.
+-   Does it display the same files and/or folders?
+
+9. Run both ```my-ls``` and the system command ```ls``` with the flag: **"-a"**
+-   Does it display the same files and/or folders in the same order?
+
+10. Run both ```my-ls``` and the system command ```ls``` with the flag: **"-r"**
+-   Does it display the same files and/or folders in the same order?
+
+11. Run both ```my-ls``` and the system command ```ls``` with the flag: **"-t"**
+-   Does it display the same files and/or folders in the same order?
+
+12 Run both ```my-ls``` and the system command ```ls``` with the flag: **"-la"**
+-   Does it display the same files and/or folders in the same order?
+
+13. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-l -t <directory name>```
+-   Does it display the same files and/or folders in the same order?
+
+14. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-lRr <directory name>``` in which the directory chosen contains folders.
+-   Does it display the same files and/or folders in the same order?
+
+15. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-l <directory name> -a <file name>```
+-   Is the output displayed the same way?
+
+16. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-lR <directory name>///<sub directory name>/// <directory name>/<sub directory name>/```
+-   Is the output displayed the same way? Number of / must be the same.
+
+17. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-la /dev```
+-   Does it display the same files and/or folders with the same display? Do not pay attention to ACL permission flag.
+
+18. Run both ```my-ls``` and the system command ```ls``` with the arguments: ```-alRrt <directory name>``` in which the directory chosen contains folders and files within folders. Time of modification of all files within that folder must be the same.
+-   Is the displayed output the same?
+
+19. Create directory with **-** name and run both ```my-ls``` and the system command ```ls``` with the arguments: **"-"**
+-   Is the displayed output the same?
+
+20. Create file and link for this file and run both my-ls-1 and the system command ls with the arguments: "-l <symlink file>/"
+-   Is the displayed output the same? Pay attention to / at the end.
+
+21. Create file and link for this file and run both my-ls-1 and the system command ls with the arguments: "-l <symlink file>"
+-   Is the displayed output the same?
+
+22. Create directory that contains files and link for this directory and run both my-ls-1 and the system command ls with the arguments: "-l <symlink dir>/"
+-   Is the displayed output the same? Pay attention to / at the end.
+
+23. Create directory that contains files and link for this directory and run both my-ls-1 and the system command ls with the arguments: "-l <symlink dir>"
+-   Is the displayed output the same?
+
+### General
+-   +Does the program run with colors as in the ls command?
+-   +Does the program has other flags except for the mandatory ones?
+-   Try running the program with "-R ~" and with the command time before the program name (ex: "time ./my-ls-1 -R ~").
+    -   +Is the real time less than 1,5 seconds?
+
+### Basic
+-   +Does the code obey the good practices?
+-   +Is there a test file for this code?
+-   +Are the tests checking each possible case?
+
+### Social
+-   +Did you learn anything from this project?
+-   +Would you recommend/nominate this program as an example for the rest of the school?

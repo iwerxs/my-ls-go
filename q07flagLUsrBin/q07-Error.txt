@@ -1,0 +1,77 @@
+------------------------------------------------
+AUDIT Q7: Testing -l on /usr/bin
+
+=== STRICT DIFF (raw comparison) ===
+RESULT: ❌ STRICT DIFFERENCE
+--- expected_clean.txt  2026-05-01 19:04:16.372505475 +0100
++++ actual_clean.txt    2026-05-01 19:04:16.372505475 +0100
+@@ -1,1908 +1,1908 @@
+ total 415860
+--rwxr-xr-x 1 root root        55720 Jun  4  2025 [
+--rwxr-xr-x 1 root root           38 Oct 13  2025 7z
+--rwxr-xr-x 1 root root           39 Oct 13  2025 7za
+--rwxr-xr-x 1 root root           39 Oct 13  2025 7zr
+--rwxr-xr-x 1 root root        18672 Apr 10  2025 aa-enabled
+--rwxr-xr-x 1 root root        18672 Apr 10  2025 aa-exec
+--rwxr-xr-x 1 root root        18664 Apr 10  2025 aa-features-abi
+-lrwxrwxrwx 1 root root           25 Mar 22  2025 aclocal -> /etc/alternatives/aclocal
+--rwxr-xr-x 1 root root        37738 Mar 22  2025 aclocal-1.17
+--rwxr-xr-x 1 root root        22840 Apr 14  2025 aconnect
+--rwxr-xr-x 1 root root          253 Apr  8  2025 activate-global-python-argcomplete
+--rwxr-xr-x 1 root root        14816 Mar  9  2025 acyclic
+-lrwxrwxrwx 1 root root           26 Mar  3  2025 addr2line -> x86_64-linux-gnu-addr2line
+--rwxr-xr-x 1 root root       183720 May  4  2025 airscan-discover
+--rwxr-xr-x 1 root root        47480 Apr 14  2025 alsabat
+--rwxr-xr-x 1 root root        81160 Apr 14  2025 alsaloop
+
+=== STRUCTURE DIFF (ignoring size + timestamps + ACL) ===
+RESULT: ❌ STRUCTURE MISMATCH
+
+Showing first differences:
+--- expected_stable.txt 2026-05-01 19:04:16.408505414 +0100
++++ actual_stable.txt   2026-05-01 19:04:16.420505393 +0100
+@@ -1,1908 +1,1908 @@
+ total
+--rwxr-xr-x 1 root root [ 
+--rwxr-xr-x 1 root root 7z 
+--rwxr-xr-x 1 root root 7za 
+--rwxr-xr-x 1 root root 7zr 
+--rwxr-xr-x 1 root root aa-enabled 
+--rwxr-xr-x 1 root root aa-exec 
+--rwxr-xr-x 1 root root aa-features-abi 
+-lrwxrwxrwx 1 root root aclocal -> /etc/alternatives/aclocal 
+--rwxr-xr-x 1 root root aclocal-1.17 
+--rwxr-xr-x 1 root root aconnect 
+--rwxr-xr-x 1 root root activate-global-python-argcomplete 
+--rwxr-xr-x 1 root root acyclic 
+-lrwxrwxrwx 1 root root addr2line -> x86_64-linux-gnu-addr2line 
+--rwxr-xr-x 1 root root airscan-discover 
+--rwxr-xr-x 1 root root alsabat 
+--rwxr-xr-x 1 root root alsaloop 
+--rwxr-xr-x 1 root root alsamixer 
+--rwxr-xr-x 1 root root alsatplg 
+--rwxr-xr-x 1 root root alsaucm 
+-lrwxrwxrwx 1 root root amdgpu-arch-19 -> ../lib/llvm-19/bin/amdgpu-arch 
+--rwxr-xr-x 1 root root amidi 
+--rwxr-xr-x 1 root root amixer 
+--rwxr-xr-x 1 root root amuFormat.sh 
+-lrwxrwxrwx 1 root root analyze-build-19 -> ../lib/llvm-19/bin/analyze-build 
+--rwxr-xr-x 1 root root aplay 
+--rwxr-xr-x 1 root root aplaymidi 
+--rwxr-xr-x 1 root root aplaymidi2 
+--rwxr-xr-x 1 root root appres 
+--rwxr-xr-x 1 root root appstreamcli 
+-lrwxrwxrwx 1 root root apropos -> whatis 
+--rwxr-xr-x 1 root root apt 
+--rwxr-xr-x 1 root root apt-cache 
+--rwxr-xr-x 1 root root apt-cdrom 
+--rwxr-xr-x 1 root root apt-config 
+-lrwxrwxrwx 1 root root apt-extracttemplates -> /lib/apt/apt-extracttemplates 
+--rwxr-xr-x 1 root root apt-ftparchive 
+
+=== PERFORMANCE TEST ===
+
+real    0m0.145s
+user    0m0.082s
+sys     0m0.062s
+------------------------------------------------
