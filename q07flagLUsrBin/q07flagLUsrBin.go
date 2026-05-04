@@ -5,10 +5,14 @@ import (
 	"fmt"
 	"os"
 	"os/user"
+	"sort"
 	"strconv"
 	"strings"
 	"syscall"
 	"time"
+
+	"golang.org/x/text/collate"
+	"golang.org/x/text/language"
 )
 
 type fileRow struct {
@@ -37,13 +41,11 @@ func main() {
 
 	now := time.Now()
 	rows := make([]fileRow, 0, len(entries))
-
 	var totalBlocks int64
 	maxL, maxU, maxG, maxS := 0, 0, 0, 0
 
 	for _, e := range entries {
 		name := e.Name()
-
 		// Skip hidden entries
 		if len(name) > 0 && name[0] == '.' {
 			continue
@@ -64,6 +66,7 @@ func main() {
 		if !ok {
 			continue
 		}
+
 		// Standard ls -l block rounding
 		totalBlocks += (stat.Blocks + 0) / 2
 
@@ -103,18 +106,14 @@ func main() {
 		rows = append(rows, r)
 	}
 
-	// C.UTF-8 sorts bytewise, which is what this audit script compares against.
-	for i := 0; i < len(rows); i++ {
-		for j := i + 1; j < len(rows); j++ {
-			if rows[i].name > rows[j].name {
-				rows[i], rows[j] = rows[j], rows[i]
-			}
-		}
-	}
+	// Locale-aware sorting (matches ls behavior)
+	collator := collate.New(language.English, collate.Loose)
+	sort.Slice(rows, func(i, j int) bool {
+		return collator.CompareString(rows[i].name, rows[j].name) < 0
+	})
 
 	// Final Output
 	fmt.Printf("total %d\n", totalBlocks)
-
 	for _, r := range rows {
 		// EXACT PRINTF: 8 verbs, 10 arguments.
 		// One space between date (%s) and name (%s).
